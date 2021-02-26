@@ -1,6 +1,5 @@
 package com.peter.day01;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
