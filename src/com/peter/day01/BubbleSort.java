@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @Author ycb
  * @Date 2021/2/26-9:23
- * @Description 冒泡排序 比较相邻的元素。如果第一个比第二个大，就交换它们两个；
+ * @Description 冒泡排序 比较相邻的元素。如果第一个比第二个大，就交换它们两个。
  */
 public class BubbleSort {
     // 时间复杂度 O(n^2)

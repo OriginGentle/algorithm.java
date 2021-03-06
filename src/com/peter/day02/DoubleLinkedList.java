@@ -6,6 +6,4 @@ package com.peter.day02;
  */
 public class DoubleLinkedList {
 
-
-
 }

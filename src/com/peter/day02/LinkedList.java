@@ -107,6 +107,7 @@ public class LinkedList<T> {
         list.addNode(new String("张三"),1);
         list.addNode(new String("王五"),2);
         list.removeNode(new String("张三"));
+        list.addLastNode(new String("赵大"));
         list.display();
     }
 

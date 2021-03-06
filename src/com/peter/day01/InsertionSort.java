@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @Author ycb
  * @Date 2021/2/26-11:01
- * @Description 插入排序
+ * @Description 插入排序 通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。
  */
 public class InsertionSort {
     // 时间复杂度 O(n^2)
