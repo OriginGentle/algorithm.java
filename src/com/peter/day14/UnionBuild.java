@@ -2,6 +2,7 @@ package com.peter.day14;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @Author ycb
@@ -37,8 +38,15 @@ public class UnionBuild {
         }
 
         public Node<V> findRepresentativeNode(Node<V> cur) {
-
-            return null;
+            Stack<Node<V>> path = new Stack<>();
+            while (cur != parents.get(cur)) {
+                path.push(cur);
+                cur = parents.get(cur);
+            }
+            while (!path.isEmpty()) {
+                parents.put(path.pop(), cur);
+            }
+            return cur;
         }
 
         public boolean isSameSet(V a, V b) {
