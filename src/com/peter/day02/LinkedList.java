@@ -3,22 +3,11 @@ package com.peter.day02;
 /**
  * @Author ycb
  * @Date 2021/2/8-16:44
+ * @Description 单向链表的实现
  */
 public class LinkedList<T> {
-    // 链表的头结点
-    private Node head;
-    // 链表的长度
-    private int size;
 
-    // 保证每次初始化链表都是新的链表结构
-    public LinkedList() {
-        this.head = null;
-        this.size = 0;
-    }
-
-    /**
-     * 链表中的节点
-     */
+    // 链表中的节点
     private class Node {
         private T data;
         private Node next;
@@ -33,9 +22,16 @@ public class LinkedList<T> {
         }
     }
 
-    /**
-     * 头插法
-     */
+    private Node head; // 链表的头结点
+    private int size; // 链表的长度
+
+    // 保证每次初始化链表都是新的链表结构
+    public LinkedList() {
+        this.head = null;
+        this.size = 0;
+    }
+
+    // 头插法
     public boolean addFirstNode(T data) {
         Node node = new Node(data);
         node.next = this.head;
@@ -74,6 +70,7 @@ public class LinkedList<T> {
         return true;
     }
 
+    // 删除节点
     public void removeNode(T data) {
         if (head == null) {
             throw new RuntimeException("当前链表为空");
@@ -93,6 +90,7 @@ public class LinkedList<T> {
         }
     }
 
+    // 打印链表中的节点
     public void display() {
         Node cur = head;
         while (cur != null) {
@@ -104,8 +102,8 @@ public class LinkedList<T> {
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
         list.addFirstNode(new String("李四"));
-        list.addNode(new String("张三"),1);
-        list.addNode(new String("王五"),2);
+        list.addNode(new String("张三"), 1);
+        list.addNode(new String("王五"), 2);
         list.removeNode(new String("张三"));
         list.addLastNode(new String("赵大"));
         list.display();

@@ -3,11 +3,7 @@ package com.peter.day02;
 /**
  * @Author ycb
  * @Date 2021/3/5-10:41
- */
-/*
- *  1)0^N == N  N^N == 0
- *  2)异或运算满足交换律和结合率
- *  3)和1做异或得到原值的相反值
+ * @Description 异或运算：(1)0^N == N  N^N == 0 (2)异或运算满足交换律和结合率 (3)和1做异或得到原值的相反值
  */
 public class Swap {
     public static void swap(int i, int j) {

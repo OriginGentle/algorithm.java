@@ -5,8 +5,8 @@ import java.util.Arrays;
 /**
  * @Author ycb
  * @Date 2021/3/4-16:45
+ * @Description 在一个有序数组中，找>=某个数最左侧的位置
  */
-// 在一个有序数组中，找>=某个数最左侧的位置
 public class BSNearLeft {
     public static int nearestIndex(int[] sortedArr, int value) {
         int L = 0;

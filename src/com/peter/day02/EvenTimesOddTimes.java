@@ -3,8 +3,8 @@ package com.peter.day02;
 /**
  * @Author ycb
  * @Date 2021/3/5-10:54
+ * @Description 一个数组中有一种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这种数
  */
-// 一个数组中有一种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这种数
 public class EvenTimesOddTimes {
     // arr中，只有一种数，出现奇数次
     public static void printOddTimesNum1(int[] arr) {

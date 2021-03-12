@@ -3,8 +3,8 @@ package com.peter.day01;
 /**
  * @Author ycb
  * @Date 2021/3/5-9:59
+ * @Description 局部最小值问题（有序数组）
  */
-// 局部最小值问题（有序数组）
 public class BSAwesome {
     public static int getLessIndex(int[] arr) {
         if (arr == null || arr.length == 0) {

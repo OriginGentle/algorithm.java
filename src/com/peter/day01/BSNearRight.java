@@ -1,14 +1,12 @@
 package com.peter.day01;
 
-import sun.security.util.Length;
-
 import java.util.Arrays;
 
 /**
  * @Author ycb
  * @Date 2021/3/5-9:17
+ * @Description  在一个有序数组中，找<=某个数最右侧的位置
  */
-// 在一个有序数组中，找<=某个数最右侧的位置
 public class BSNearRight {
     public static int nearestIndex(int[] sortedArr, int value) {
         int L = 0;

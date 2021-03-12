@@ -5,8 +5,8 @@ import java.util.Arrays;
 /**
  * @Author ycb
  * @Date 2021/3/4-15:47
+ * @Description 在一个有序数组中，找某个数是否存在
  */
-// 在一个有序数组中，找某个数是否存在
 public class BSExist {
     public static boolean numIsExist(int[] sortedArr, int num) {
         if (sortedArr == null || sortedArr.length == 0) {
