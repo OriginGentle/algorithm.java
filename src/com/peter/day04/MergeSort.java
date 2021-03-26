@@ -54,11 +54,12 @@ public class MergeSort {
         int N = arr.length;
         int mergeSize = 1; // 步长
         while (mergeSize < N) {
+            // 当前左组的位置
             int L = 0;
             while (L < N) {
                 if (mergeSize > N - L) break;
-                int M = L + mergeSize - 1; // ?
-                int R = M + Math.min(mergeSize, N - M - 1); // ?
+                int M = L + mergeSize - 1; // 当前右组的最后位置
+                int R = M + Math.min(mergeSize, N - M - 1); // 边界条件，右组不够步长时，来到原数组最后位置
                 merge(arr, L, M, R);
                 L = R + 1;
             }
@@ -70,11 +71,72 @@ public class MergeSort {
         }
     }
 
-    public static void main(String[] args) {
-        int[] arr = new int[]{1, 8, 7, 6, 9, 5};
-        mergeSort2(arr);
+    // for test
+    public static int[] generateRandomArray(int maxSize, int maxValue) {
+        int[] arr = new int[(int) (Math.random() * (maxSize + 1))];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
+        }
+        return arr;
+    }
+
+    // for test
+    public static int[] copyArray(int[] arr) {
+        if (arr == null) {
+            return null;
+        }
+        int[] res = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            res[i] = arr[i];
+        }
+        return res;
+    }
+
+    // for test
+    public static boolean isEqual(int[] arr1, int[] arr2) {
+        if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
+            return false;
+        }
+        if (arr1 == null && arr2 == null) {
+            return true;
+        }
+        if (arr1.length != arr2.length) {
+            return false;
+        }
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // for test
+    public static void printArray(int[] arr) {
+        if (arr == null) {
+            return;
+        }
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int maxSize = 30000;
+        int value = 200000;
+        int times = 5000;
+        System.out.println("测试开始");
+        for (int i = 0; i < times; i++) {
+            int[] arr1 = generateRandomArray(maxSize, value);
+            int[] arr2 = copyArray(arr1);
+            mergeSort1(arr1);
+            mergeSort2(arr2);
+            if (!isEqual(arr1, arr2)) {
+                System.out.println("oops");
+                printArray(arr1);
+                printArray(arr2);
+            }
         }
     }
 }
