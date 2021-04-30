@@ -117,7 +117,7 @@ public class ReversePair {
         for (int i = 0; i < testTimes; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            if (reversePairNumber(arr1) != comparator(arr2)){
+            if (reversePairNumber(arr1) != comparator(arr2)) {
                 System.out.println("oops!");
                 printArray(arr1);
                 printArray(arr2);
