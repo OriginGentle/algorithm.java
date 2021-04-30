@@ -3,7 +3,7 @@ package com.peter.day05;
 /**
  * @Author ycb
  * @Date 2021/3/26-9:33
- * @Description 荷兰国旗问题 -> 快排
+ * @Description 荷兰国旗问题 -> 快排 ->  随机快排
  */
 public class PartitionAndQuickSort {
 

@@ -6,6 +6,7 @@ import java.util.Stack;
 /**
  * @Author ycb
  * @Date 2021/4/30-0:20
+ * @Description 随机快排非递归版本
  */
 public class QuickSortRecursiveAndNonrecursive {
 
