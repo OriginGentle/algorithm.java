@@ -1,4 +1,4 @@
-package com.algorithm.day14;
+package com.algorithm.day15;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,11 +7,12 @@ import java.util.Stack;
 /**
  * @Author ycb
  * @Date 2021/3/9-9:18
- * @Description 并查集（1.有若干个样本a、b、c、d…类型假设是V，在并查集中一开始认为每个样本都在单独的集合里，用户可以在任何时候调用如下两个方法：
- *                       boolean isSameSet(V x, V y) : 查询样本x和样本y是否属于一个集合
- *                       void union(V x, V y) : 把x和y各自所在集合的所有样本合并成一个集合）
+ * @Description 并查集（1.有若干个样本a、b、c、d…类型假设是V，
+ * 在并查集中一开始认为每个样本都在单独的集合里，用户可以在任何时候调用如下两个方法：
+ * boolean isSameSet(V x, V y) : 查询样本x和样本y是否属于一个集合
+ * void union(V x, V y) : 把x和y各自所在集合的所有样本合并成一个集合）
  */
-public class UnionFindBuild {
+public class UnionBuild {
     // 节点
     public static class Node<V> {
         V value;
@@ -57,7 +58,7 @@ public class UnionFindBuild {
             return findRepresentativeNode(nodes.get(a)) == findRepresentativeNode(nodes.get(b));
         }
 
-         // 合并
+        // 合并
         public void Union(V a, V b) {
             Node<V> aHead = findRepresentativeNode(nodes.get(a));
             Node<V> bHead = findRepresentativeNode(nodes.get(b));

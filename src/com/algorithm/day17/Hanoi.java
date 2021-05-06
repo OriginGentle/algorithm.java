@@ -3,7 +3,7 @@ package com.algorithm.day17;
 /**
  * @Author ycb
  * @Date 2021/3/17-14:14
- * @Description 汉诺特问题
+ * @Description 汉诺塔问题
  */
 public class Hanoi {
     // 方法一:
