@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class NumberOfIslandsII {
 
-    public static List<Integer> numIslands(int m, int n, int[][] positions) {
+    public static List<Integer> numIslands2(int m, int n, int[][] positions) {
         UnionFind uf = new UnionFind(m, n);
         List<Integer> ans = new ArrayList<>();
         for (int[] position : positions) {

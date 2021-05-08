@@ -11,11 +11,12 @@ import java.util.Stack;
  * @Description https://leetcode.com/problems/number-of-islands/
  */
 public class NumberOfIslands {
+
     // 方法一
     public static int numIslands1(char[][] board) {
         int row = board.length;
         int col = board[0].length;
-        UnionFindI uf = new UnionFindI(board);
+        UnionFind1 uf = new UnionFind1(board);
         for (int j = 1; j < col; j++) {
             if (board[0][j - 1] == '1' && board[0][j] == '1') {
                 uf.union(0, j - 1, 0, j);
@@ -41,14 +42,14 @@ public class NumberOfIslands {
         return uf.sets();
     }
 
-    public static class UnionFindI {
+    public static class UnionFind1 {
         private int[] parent;
         private int[] size;
         private int[] help;
         private int col;
         private int sets;
 
-        public UnionFindI(char[][] board) {
+        public UnionFind1(char[][] board) {
             col = board[0].length; // 列数
             sets = 0;
             int row = board.length; // 行数
@@ -111,6 +112,10 @@ public class NumberOfIslands {
 
     }
 
+    /*
+    ====================================================================================================================
+     */
+
     // 方法二
     public static int numIslands2(char[][] board) {
         int islands = 0;
@@ -137,6 +142,10 @@ public class NumberOfIslands {
         infect(board, i, j + 1);
     }
 
+    /*
+    ====================================================================================================================
+     */
+
     // 方法三
     public static int numIslands3(char[][] board) {
         int row = board.length;
@@ -151,7 +160,7 @@ public class NumberOfIslands {
                 }
             }
         }
-        UnionFindII<Dot> uf = new UnionFindII<>(dotList);
+        UnionFind2<Dot> uf = new UnionFind2<>(dotList);
         for (int j = 1; j < col; j++) {
             // (0,j)  (0,0)跳过了  (0,1) (0,2) (0,3)
             if (board[0][j - 1] == '1' && board[0][j] == '1') {
@@ -183,21 +192,19 @@ public class NumberOfIslands {
     }
 
     public static class Node<V> {
-
         V value;
 
         public Node(V v) {
             value = v;
         }
-
     }
 
-    public static class UnionFindII<V> {
+    public static class UnionFind2<V> {
         public HashMap<V, Node<V>> nodes;
         public HashMap<Node<V>, Node<V>> parents;
         public HashMap<Node<V>, Integer> sizeMap;
 
-        public UnionFindII(List<V> values) {
+        public UnionFind2(List<V> values) {
             nodes = new HashMap<>();
             parents = new HashMap<>();
             sizeMap = new HashMap<>();

@@ -22,10 +22,10 @@ public class FriendCircles {
     }
 
     public static class UnionFind {
-        private int[] parent; // parent[i] = k -> i的父亲是k
-        private int[] size; // size[i] = k -> i所在的集合大小是多少.如果i是代表节点,size[i]才有意义,否则无意义
-        private int[] help; // 辅助结构
-        private int sets; // 一共有多少个集合
+        private int[] parent; // parent[i] = k --> i的父亲是k
+        private int[] size;   // size[i] = k --> i所在的集合大小是多少.(i是代表节点,size[i]才有意义)
+        private int[] help;   // 辅助结构 --> 栈
+        private int sets;     // 一共有多少个集合
 
         public UnionFind(int N) {
             parent = new int[N];
@@ -53,11 +53,11 @@ public class FriendCircles {
         public void union(int i, int j) {
             int f1 = find(i);
             int f2 = find(j);
-            if (f1 != f2){
-                if (size[f1] >= size[f2]){
+            if (f1 != f2) {
+                if (size[f1] >= size[f2]) {
                     size[f1] += size[f2];
                     parent[f2] = f1;
-                }else {
+                } else {
                     size[f2] += size[f1];
                     parent[f1] = f2;
                 }
