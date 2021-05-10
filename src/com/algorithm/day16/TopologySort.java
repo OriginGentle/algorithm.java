@@ -8,9 +8,14 @@ import java.util.*;
 /**
  * @Author ycb
  * @Date 2021/3/16-16:02
- * @Description 拓扑序
+ * @Description 拓扑排序
+ * <p>
+ * 1）在图中找到所有入度为0的点输出
+ * 2）把所有入度为0的点在图中删掉，继续找入度为0的点输出，周而复始
+ * 3）图的所有点都被删除后，依次输出的顺序就是拓扑排序
  */
 public class TopologySort {
+
     public static List<Node> sortedTopology(Graph graph) {
         // key 某个节点   value 剩余的入度
         HashMap<Node, Integer> inMap = new HashMap<>();
@@ -22,14 +27,14 @@ public class TopologySort {
                 zeroInQueue.add(node);
             }
         }
-        List<Node> result = new ArrayList<>();
+        List<Node> result = new ArrayList<>(); // 集合加入的顺序就是拓扑序
         while (!zeroInQueue.isEmpty()) {
             Node cur = zeroInQueue.poll();
             result.add(cur);
-            for (Node next : cur.nexts) {
-                inMap.put(next, inMap.get(next) - 1);
+            for (Node next : cur.nexts) { // 遍历弹出节点的所有邻居
+                inMap.put(next, inMap.get(next) - 1); // 更新所有的邻居的入度
                 if (inMap.get(next) == 0) {
-                    zeroInQueue.add(next);
+                    zeroInQueue.add(next); // 邻居的入度为0加入队列
                 }
             }
         }

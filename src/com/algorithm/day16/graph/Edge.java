@@ -3,7 +3,7 @@ package com.algorithm.day16.graph;
 /**
  * @Author ycb
  * @Date 2021/3/16-11:39
- * @Description 边结构的表示
+ * @Description 边结构的描述
  */
 public class Edge {
     public int weight; // 权重

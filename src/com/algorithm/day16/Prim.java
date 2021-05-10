@@ -12,12 +12,12 @@ import java.util.Set;
 /**
  * @Author ycb
  * @Date 2021/3/17-10:08
- * @Description 最小生成树算法之Prim
+ * @Description 最小生成树算法之Prim --> 贪心
  * 1）可以从任意节点出发来寻找最小生成树
  * 2）某个点加入到被选取的点中后，解锁这个点出发的所有新的边
  * 3）在所有解锁的边中选最小的边，然后看看这个边会不会形成环
- * 4）如果会，不要当前边，继续考察剩下解锁的边中最小的边，重复3）
- * 5）如果不会，要当前边，将该边的指向点加入到被选取的点中，重复2）
+ * 4）如果会，不要当前边，继续考察剩下解锁的边中最小的边，重复 3）过程
+ * 5）如果不会，要当前边，将该边的指向点加入到被选取的点中，重复 2）过程
  * 6）当所有点都被选取，最小生成树就得到了
  */
 public class Prim {
@@ -32,12 +32,12 @@ public class Prim {
         for (Node node : graph.nodes.values()) {
             if (!nodeSet.contains(node)) {
                 nodeSet.add(node);
-                for (Edge edge : node.edges) {
+                for (Edge edge : node.edges) { // 由一个点，解锁所有的边
                     priorityQueue.add(edge);
                 }
                 while (!priorityQueue.isEmpty()) {
-                    Edge edge = priorityQueue.poll();
-                    Node toNode = edge.to;
+                    Edge edge = priorityQueue.poll(); // 弹出最小边
+                    Node toNode = edge.to; // 解锁的点
                     if (!nodeSet.contains(toNode)) { // 不含有的时候，就是新的点
                         nodeSet.add(toNode);
                         result.add(edge);
@@ -47,6 +47,7 @@ public class Prim {
                     }
                 }
             }
+//             break;
         }
         return result;
     }

@@ -6,7 +6,9 @@ package com.algorithm.day16.graph;
  * @Description 图的生成器
  */
 public class GraphGenerator {
-
+    // matrix 所有的边
+    // N * 3 的矩阵
+    // [weight,from节点上的值,to节点上的值]
     public static Graph createGraph(int[][] matrix) {
         Graph graph = new Graph();
         for (int i = 0; i < matrix.length; i++) {

@@ -7,6 +7,8 @@ import java.util.List;
  * @Author ycb
  * @Date 2021/3/16-10:20
  * @Description https://leetcode.com/problems/number-of-islands-ii/
+ *
+ * 注意：动态初始化的技巧
  */
 public class NumberOfIslandsII {
 

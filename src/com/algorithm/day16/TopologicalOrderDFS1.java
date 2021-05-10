@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 
-// OJ链接：https://www.lintcode.com/problem/topological-sorting
-public class TopologicalOrderDFS_I {
+/**
+ * @Author ycb
+ * @Date 2021/3/16-16:02
+ * @Description https://www.lintcode.com/problem/topological-sorting
+ */
+public class TopologicalOrderDFS1 {
 
+    // 图结构的描述
     public static class DirectedGraphNode {
         public int label;
         public ArrayList<DirectedGraphNode> neighbors;
@@ -17,28 +22,10 @@ public class TopologicalOrderDFS_I {
         }
     }
 
-    public static class Record {
-        public DirectedGraphNode node;
-        public long nodes;
-
-        public Record(DirectedGraphNode n, long o) {
-            node = n;
-            nodes = o;
-        }
-    }
-
-    public static class MyComparator implements Comparator<Record> {
-
-        @Override
-        public int compare(Record o1, Record o2) {
-            return o1.nodes == o2.nodes ? 0 : (o1.nodes > o2.nodes ? -1 : 1);
-        }
-    }
-
     public static ArrayList<DirectedGraphNode> topSort(ArrayList<DirectedGraphNode> graph) {
         HashMap<DirectedGraphNode, Record> order = new HashMap<>();
         for (DirectedGraphNode cur : graph) {
-            f(cur, order);
+            process(cur, order);
         }
         ArrayList<Record> recordArr = new ArrayList<>();
         for (Record r : order.values()) {
@@ -52,23 +39,34 @@ public class TopologicalOrderDFS_I {
         return ans;
     }
 
-    // 当前来到cur点，请返回cur点所到之处，所有的点次！
-    // 返回（cur，点次）
-    // 缓存！！！！！order
-    //  key : 某一个点的点次，之前算过了！
-    //  value : 点次是多少
-    public static Record f(DirectedGraphNode cur, HashMap<DirectedGraphNode, Record> order) {
+    public static Record process(DirectedGraphNode cur, HashMap<DirectedGraphNode, Record> order) {
         if (order.containsKey(cur)) {
             return order.get(cur);
         }
-        // cur的点次之前没算过！
-        long nodes = 0;
+        int follow = 0;
         for (DirectedGraphNode next : cur.neighbors) {
-            nodes += f(next, order).nodes;
+            follow = Math.max(follow, process(next, order).deep);
         }
-        Record ans = new Record(cur, nodes + 1);
+        Record ans = new Record(cur, follow + 1);
         order.put(cur, ans);
         return ans;
+    }
+
+    public static class Record {
+        public DirectedGraphNode node;
+        public int deep;
+
+        public Record(DirectedGraphNode n, int o) {
+            node = n;
+            deep = o;
+        }
+    }
+
+    public static class MyComparator implements Comparator<Record> {
+        @Override
+        public int compare(Record o1, Record o2) {
+            return o2.deep - o1.deep;
+        }
     }
 
 }
