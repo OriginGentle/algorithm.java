@@ -9,6 +9,7 @@ import java.util.List;
  * @Description 打印一个字符串的全部排列
  */
 public class PrintAllPermutations {
+
     public static List<String> Permutation1(String s) {
         List<String> ans = new ArrayList<>();
         if (s == null || s.length() == 0) {
@@ -20,11 +21,17 @@ public class PrintAllPermutations {
             rest.add(ch);
         }
         String path = "";
-        f(rest, path, ans);
+        process1(rest, path, ans);
         return ans;
     }
 
-    public static void f(ArrayList<Character> rest, String path, List<String> ans) {
+    /**
+     *
+     * @param rest 还剩下多少字符
+     * @param path 之前做过的决定
+     * @param ans 最后的答案
+     */
+    public static void process1(ArrayList<Character> rest, String path, List<String> ans) {
         if (rest.isEmpty()) {
             ans.add(path);
         } else {
@@ -32,11 +39,15 @@ public class PrintAllPermutations {
             for (int i = 0; i < N; i++) {
                 char cur = rest.get(i);
                 rest.remove(cur);
-                f(rest, path + cur, ans);
-                rest.add(i, cur);
+                process1(rest, path + cur, ans);
+                rest.add(i, cur); // 恢复现场
             }
         }
     }
+
+    /*
+    ====================================================================================================================
+     */
 
     public static List<String> permutation2(String s) {
         List<String> ans = new ArrayList<>();
@@ -44,33 +55,38 @@ public class PrintAllPermutations {
             return ans;
         }
         char[] str = s.toCharArray();
-        g1(str, 0, ans);
+        process2(str, 0, ans);
         return ans;
     }
 
-    public static void g1(char[] str, int index, List<String> ans) {
+    public static void process2(char[] str, int index, List<String> ans) {
         if (index == str.length) {
             ans.add(String.valueOf(str));
         } else {
             for (int i = index; i < str.length; i++) {
                 swap(str, index, i);
-                g1(str, index + 1, ans);
+                process2(str, index + 1, ans);
                 swap(str, index, i);
             }
         }
     }
 
+    /*
+    ====================================================================================================================
+     */
+
+    // 去重
     public static List<String> permutation3(String s) {
         List<String> ans = new ArrayList<>();
         if (s == null || s.length() == 0) {
             return ans;
         }
         char[] str = s.toCharArray();
-        g2(str, 0, ans);
+        process3(str, 0, ans);
         return ans;
     }
 
-    public static void g2(char[] str, int index, List<String> ans) {
+    public static void process3(char[] str, int index, List<String> ans) {
         if (index == str.length) {
             ans.add(String.valueOf(str));
         } else {
@@ -79,7 +95,7 @@ public class PrintAllPermutations {
                 if (!visited[str[i]]) {
                     visited[str[i]] = true;
                     swap(str, index, i);
-                    g2(str, index + 1, ans);
+                    process3(str, index + 1, ans);
                     swap(str, index, i);
                 }
             }

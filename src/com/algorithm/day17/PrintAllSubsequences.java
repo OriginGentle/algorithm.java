@@ -10,7 +10,8 @@ import java.util.List;
  * @Description 打印一个字符串的全部子序列
  */
 public class PrintAllSubsequences {
-    public static List<String> subs(String s){
+
+    public static List<String> subs(String s) {
         char[] str = s.toCharArray();
         String path = "";
         List<String> ans = new ArrayList<>();
@@ -25,7 +26,7 @@ public class PrintAllSubsequences {
     // str[index....]还能决定，之前已经确定，而后面还能自由选择的话，
     // 把所有生成的子序列，放入到ans里去
     public static void process1(char[] str, int index, List<String> ans, String path) {
-        if (index == str.length){
+        if (index == str.length) {
             ans.add(path);
             return;
         }
@@ -34,6 +35,10 @@ public class PrintAllSubsequences {
         // 要了index位置的字符
         process1(str, index + 1, ans, path + String.valueOf(str[index]));
     }
+
+    /*
+    ====================================================================================================================
+     */
 
     // 打印一个字符串的全部子序列，要求不要出现重复字面值的子序列
     public static List<String> subsNoRepeat(String s) {
