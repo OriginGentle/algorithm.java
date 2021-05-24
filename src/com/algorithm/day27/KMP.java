@@ -55,6 +55,6 @@ public class KMP {
     }
 
     public static void main(String[] args) {
-        System.out.println(KMP.getIndexOf("adfdfdwjghgb", "wko"));
+        System.out.println(KMP.getIndexOf("adfdfdwkoghgb", "wko"));
     }
 }
