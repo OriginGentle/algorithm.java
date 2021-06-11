@@ -4,19 +4,20 @@ package com.algorithm.day35;
  * @Author ycb
  * @Date 2021/3/10-9:06
  * @Description AVL树 (搜索二叉树，有序表的一种实现方式)
- *              平衡因子：左树与右树的高度差不能大于1
+ * 平衡因子：左树与右树的高度差不能大于1
  * (1)LL:右旋              RR:左旋
  * (2)LR:左旋->右旋         RL:右旋->左旋
  * (3)LL+LR:以LL为准，右旋  RR+RL:以RR为准，左旋
  */
 public class AVLTree {
+
     // AVL树的节点
     public static class AVLNode<K extends Comparable<K>, V> {
         public K k;
         public V v;
-        public AVLNode<K, V> l;
-        public AVLNode<K, V> r;
-        public int h;
+        public AVLNode<K, V> l; // 左指针
+        public AVLNode<K, V> r; // 右指针
+        public int h; // 高度
 
         public AVLNode(K key, V value) {
             k = key;
@@ -27,6 +28,7 @@ public class AVLTree {
 
     // AVL树的实现
     public static class AVLTreeMap<K extends Comparable<K>, V> {
+        // 根节点
         private AVLNode<K, V> root;
         private int size;
 
@@ -37,12 +39,13 @@ public class AVLTree {
 
         // 右旋
         private AVLNode<K, V> rightRotate(AVLNode<K, V> cur) { // cur表示要当前需要调整的节点
-            // 记录当前节点的左树节点:left
+            // 记录当前节点的左孩子
             AVLNode<K, V> left = cur.l;
             // left节点的右树直接挂到当前节点左树上
             cur.l = left.r;
             // 当前节点挂到left的右树上
             left.r = cur;
+            // 更新高度 --> 更新平衡因子
             cur.h = Math.max((cur.l != null ? cur.l.h : 0), (cur.r != null ? cur.r.h : 0)) + 1;
             left.h = Math.max((left.l != null ? left.l.h : 0), (left.r != null ? left.r.h : 0)) + 1;
             return left;
@@ -53,12 +56,13 @@ public class AVLTree {
             AVLNode<K, V> right = cur.r;
             cur.r = right.l;
             right.l = cur;
+            // 更新高度 --> 更新平衡因子
             cur.h = Math.max((cur.l != null ? cur.l.h : 0), (cur.r != null ? cur.r.h : 0)) + 1;
             right.h = Math.max((right.l != null ? right.l.h : 0), (right.r != null ? right.r.h : 0)) + 1;
             return right;
         }
 
-        // 维持树的平衡
+        // 维持平衡方法
         private AVLNode<K, V> maintain(AVLNode<K, V> cur) {
             if (cur == null) {
                 return null;
@@ -145,7 +149,7 @@ public class AVLTree {
             return ans;
         }
 
-        // 添加节点
+        // 添加节点 --> 不接收重复的key
         private AVLNode<K, V> add(AVLNode<K, V> cur, K key, V value) {
             if (cur == null) {
                 return new AVLNode<K, V>(key, value);
@@ -179,6 +183,7 @@ public class AVLTree {
                     while (des.l != null) {
                         des = des.l;
                     }
+                    // 找到边界删除，并依次调整好子树的平衡
                     cur.r = delete(cur.r, des.k);
                     des.l = cur.l;
                     des.r = cur.r;
