@@ -4,9 +4,10 @@ package com.algorithm.day36;
  * @Author ycb
  * @Date 2021/3/11-9:49
  * @Description SizeBalancedTree的实现
- *              平衡因子：每一个叔叔节点为头的节点，节点个数都不少于其任何一个侄子节点的节点数
+ * 平衡因子：每一个叔叔节点为头的子树，节点个数都不少于其任何一个侄子节点的节点数
  */
 public class SizeBalancedTree {
+
     // sb树中的节点
     public static class SBTNode<K extends Comparable<K>, V> {
         public K key;
@@ -22,7 +23,9 @@ public class SizeBalancedTree {
         }
     }
 
+    // sb树的具体实现
     public static class SizeBalancedTreeMap<K extends Comparable<K>, V> {
+
         private SBTNode<K, V> root;
 
         private SBTNode<K, V> rightRotate(SBTNode<K, V> cur) {
@@ -178,6 +181,7 @@ public class SizeBalancedTree {
                     cur = des;
                 }
             }
+            // 删除节点不进行平衡调整
             // cur = maintain(cur);
             return cur;
         }
@@ -297,7 +301,6 @@ public class SizeBalancedTree {
         System.out.println();
     }
 
-    // for test
     public static void printInOrder(SBTNode<String, Integer> head, int height, String to, int len) {
         if (head == null) {
             return;
@@ -312,7 +315,6 @@ public class SizeBalancedTree {
         printInOrder(head.l, height + 1, "^", len);
     }
 
-    // for test
     public static String getSpace(int num) {
         String space = " ";
         StringBuffer buf = new StringBuffer("");
@@ -334,9 +336,7 @@ public class SizeBalancedTree {
         sbt.put("h", 8);
         sbt.put("i", 9);
         sbt.put("a", 111);
-        System.out.println(sbt.get("a"));
         sbt.put("a", 1);
-        System.out.println(sbt.get("a"));
         for (int i = 0; i < sbt.getSize(); i++) {
             System.out.println(sbt.getIndexKey(i) + " , " + sbt.getIndexValue(i));
         }
