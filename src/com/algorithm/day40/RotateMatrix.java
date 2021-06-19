@@ -47,7 +47,6 @@ public class RotateMatrix {
         rotate(matrix);
         System.out.println("=========");
         printMatrix(matrix);
-
     }
 
 }
