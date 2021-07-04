@@ -78,6 +78,10 @@ public class PartitionAndQuickSort {
         process1(arr, M + 1, R);
     }
 
+    /*
+    ====================================================================================================================
+     */
+
     // arr[L...R] 排有序
     // 快排2.0 时间复杂度O(n^2)
     public static void quickSort2(int[] arr) {
@@ -95,6 +99,10 @@ public class PartitionAndQuickSort {
         process2(arr, L, equalArea[0] - 1);
         process2(arr, equalArea[1] + 1, R);
     }
+
+    /*
+    ====================================================================================================================
+     */
 
     // 随机快排 快排3.0 时间复杂度O(n * log n)
     public static void quickSort3(int[] arr) {

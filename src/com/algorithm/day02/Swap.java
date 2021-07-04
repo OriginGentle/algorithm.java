@@ -18,4 +18,9 @@ public class Swap {
         int b = 58;
         swap(12, 58);
     }
+
+    public static void swap(int[] arr,int i,int j){
+        arr[i] = arr[i] ^ arr[j] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j] ^ arr[j];
+    }
 }

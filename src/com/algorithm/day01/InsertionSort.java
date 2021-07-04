@@ -39,7 +39,7 @@ public class InsertionSort {
         return arr;
     }
 
-    // 赋值数组
+    // 复制数组
     public static int[] copyArray(int[] arr) {
         if (arr == null) {
             return null;

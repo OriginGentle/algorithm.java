@@ -5,7 +5,7 @@ package com.leetcode;
  * @Date 2021/3/11-17:50
  * @Description https://leetcode-cn.com/problems/add-two-numbers/
  */
-public class AddTwoNumbers {
+public class Code02_AddTwoNumbers {
 
     public class ListNode {
         int val;
