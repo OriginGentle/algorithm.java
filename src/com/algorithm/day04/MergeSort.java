@@ -33,11 +33,11 @@ public class MergeSort {
         while (p1 <= M && p2 <= R) {
             help[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++]; // 左组与右组相等，copy左组
         }
-        // 要么p1越界
+        // 要么p2越界
         while (p1 <= M) {
             help[i++] = arr[p1++];
         }
-        // 要么p2越界
+        // 要么p1越界
         while (p2 <= R) {
             help[i++] = arr[p2++];
         }
@@ -45,6 +45,10 @@ public class MergeSort {
             arr[L + i] = help[i];
         }
     }
+
+    /*
+    ====================================================================================================================
+     */
 
     // 非递归方法实现
     public static void mergeSort2(int[] arr) {
@@ -58,7 +62,7 @@ public class MergeSort {
             int L = 0;
             while (L < N) {
                 if (mergeSize > N - L) break;
-                int M = L + mergeSize - 1; // 当前右组的最后位置
+                int M = L + mergeSize - 1; // 当前左组的最后位置
                 int R = M + Math.min(mergeSize, N - M - 1); // 边界条件，右组不够步长时，来到原数组最后位置
                 merge(arr, L, M, R);
                 L = R + 1;
@@ -123,6 +127,10 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
+
+        int[] arr = new int[]{191, 89, 76, 56, 30};
+        mergeSort2(arr);
+
         int maxSize = 30000;
         int value = 200000;
         int times = 5000;

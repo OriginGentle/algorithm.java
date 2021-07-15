@@ -309,7 +309,6 @@ public class TrieTree {
             }
         }
         System.out.println("finish!");
-
     }
 
 }
