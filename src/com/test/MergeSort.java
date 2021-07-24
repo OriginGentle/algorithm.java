@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 // 归并排序
-public class MergeSortTest {
+public class MergeSort {
 
     public static void mergeSort1(int[] arr) {
         if (arr == null || arr.length < 2) {

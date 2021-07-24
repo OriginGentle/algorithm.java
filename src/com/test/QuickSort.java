@@ -6,7 +6,7 @@ package com.test;
  */
 
 // 随机快排
-public class QuickSortTest {
+public class QuickSort {
     // 数组arr，在L到R位置上，以arr[R]作为划分值
     // <= arr[R] 放左边  > arr[R] 放右边
     // 返回 <=k区的边界
