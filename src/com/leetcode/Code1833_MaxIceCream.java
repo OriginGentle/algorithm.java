@@ -1,12 +1,10 @@
 package com.leetcode;
 
 import java.util.Arrays;
-import java.util.PriorityQueue;
 
 /**
  * @Author ycb
  * @Date 2021/7/2-13:36
- * @Description https://leetcode-cn.com/problems/maximum-ice-cream-bars/
  */
 public class Code1833_MaxIceCream {
 

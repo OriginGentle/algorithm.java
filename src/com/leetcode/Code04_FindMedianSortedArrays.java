@@ -3,7 +3,6 @@ package com.leetcode;
 /**
  * @Author ycb
  * @Date 2021/6/20-19:30
- * @Description https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
  */
 public class Code04_FindMedianSortedArrays {
 

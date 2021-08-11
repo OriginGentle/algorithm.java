@@ -3,7 +3,6 @@ package com.leetcode;
 /**
  * @Author ycb
  * @Date 2021/6/29-16:52
- * @Description https://leetcode-cn.com/problems/longest-palindromic-substring/
  */
 public class Code05_LongestPalindrome {
 

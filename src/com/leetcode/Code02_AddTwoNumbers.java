@@ -3,7 +3,6 @@ package com.leetcode;
 /**
  * @Author ycb
  * @Date 2021/3/11-17:50
- * @Description https://leetcode-cn.com/problems/add-two-numbers/
  */
 public class Code02_AddTwoNumbers {
 
