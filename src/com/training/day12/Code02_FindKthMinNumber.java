@@ -43,10 +43,10 @@ public class Code02_FindKthMinNumber {
         int[] shorts = arr1.length < arr2.length ? arr1 : arr2;
         int l = longs.length;
         int s = shorts.length;
-        if (kth <= s) { // 1)
+        if (kth <= s) { // 1) k小于短数组长度
             return getUpMedian(shorts, 0, kth - 1, longs, 0, kth - 1);
         }
-        if (kth > l) { // 3)
+        if (kth > l) { // 3) k大于长数组长度
             if (shorts[kth - l - 1] >= longs[l - 1]) {
                 return shorts[kth - l - 1];
             }
@@ -55,8 +55,7 @@ public class Code02_FindKthMinNumber {
             }
             return getUpMedian(shorts, kth - l, s - 1, longs, kth - s, l - 1);
         }
-        // 2)  s < k <= l
-        if (longs[kth - s - 1] >= shorts[s - 1]) {
+        if (longs[kth - s - 1] >= shorts[s - 1]) { // 2) k介于长度和短数组长度之间
             return longs[kth - s - 1];
         }
         return getUpMedian(shorts, 0, s - 1, longs, kth - s, kth - 1);
