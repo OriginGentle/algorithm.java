@@ -9,7 +9,7 @@ public class FibonacciProblem {
 
     // 斐波那契数列问题
     public static int f1(int n) {
-        if (n < 0) {
+        if (n < 1) {
             return 0;
         }
         if (n == 1 || n == 2) {
@@ -19,7 +19,7 @@ public class FibonacciProblem {
     }
 
     public static int f2(int n) {
-        if (n < 0) {
+        if (n < 1) {
             return 0;
         }
         if (n == 1 || n == 2) {
