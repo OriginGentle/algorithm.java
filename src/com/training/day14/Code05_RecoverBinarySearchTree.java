@@ -45,14 +45,16 @@ public class Code05_RecoverBinarySearchTree {
         TreeNode pre = null;
         TreeNode e1 = null;
         TreeNode e2 = null;
+        // 利用Morris遍历的过程
         while (cur != null) {
             mostRight = cur.left;
             if (mostRight != null) {
-                // 来到左树最右节点
+                // 来到左树右边界
                 while (mostRight.right != null && mostRight.right != cur) {
                     mostRight = mostRight.right;
                 }
                 if (mostRight.right == null) {
+                    // 当前mostRight在左树右边界上
                     mostRight.right = cur;
                     cur = cur.left;
                     continue;
