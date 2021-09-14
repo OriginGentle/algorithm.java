@@ -17,7 +17,9 @@ import java.util.Map;
 public class CoinsWaySameValueSamePaper {
 
     public static class Info {
+        // 面值
         public int[] coins;
+        // 张数
         public int[] zhangs;
 
         public Info(int[] c, int[] z) {
@@ -28,6 +30,7 @@ public class CoinsWaySameValueSamePaper {
 
     public static Info getInfo(int[] arr) {
         HashMap<Integer, Integer> counts = new HashMap<>();
+        // 收集数组中某面值的货币一共多少张
         for (int value : arr) {
             if (!counts.containsKey(value)) {
                 counts.put(value, 1);
@@ -57,6 +60,9 @@ public class CoinsWaySameValueSamePaper {
 
     // coins 面值数组，正数且去重
     // zhangs 每种面值对应的张数
+    // [2, 5, 10]
+    // [4, 6, 3]
+    //  0  1  2
     public static int process(int[] coins, int[] zhangs, int index, int rest) {
         if (index == coins.length) {
             return rest == 0 ? 1 : 0;
