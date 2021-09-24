@@ -4,7 +4,7 @@ package com.leetcode;
  * @Author ycb
  * @Date 2021/3/11-17:50
  */
-public class Code02_AddTwoNumbers {
+public class Code0002_AddTwoNumbers {
 
     public class ListNode {
         int val;

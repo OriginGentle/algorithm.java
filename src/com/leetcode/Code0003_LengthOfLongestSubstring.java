@@ -6,7 +6,7 @@ import java.util.HashMap;
  * @Author ycb
  * @Date 2021/3/12-9:47
  */
-public class Code03_LengthOfLongestSubstring {
+public class Code0003_LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) {
             return 0;

@@ -8,7 +8,7 @@ import java.util.List;
  * @Date 2021/7/1-8:20
  * @Description
  */
-public class Code94_InorderTraversal {
+public class Code0094_InorderTraversal {
 
     public class TreeNode {
         int val;

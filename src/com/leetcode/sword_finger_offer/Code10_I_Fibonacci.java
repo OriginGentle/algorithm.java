@@ -4,7 +4,7 @@ package com.leetcode.sword_finger_offer;
  * @author ycb
  * @since 2021/9/4-11:00
  */
-public class Code_10_I_Fibonacci {
+public class Code10_I_Fibonacci {
 
     static final int mod = 1000000007;
 

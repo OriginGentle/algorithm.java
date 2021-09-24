@@ -4,7 +4,7 @@ package com.leetcode;
  * @author ycb
  * @date 2021/9/6-9:39
  */
-public class Code704_Search {
+public class Code0704_Search {
 
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) {

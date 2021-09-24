@@ -4,7 +4,7 @@ package com.leetcode;
  * @Author ycb
  * @Date 2021/6/20-19:30
  */
-public class Code04_FindMedianSortedArrays {
+public class Code0004_FindMedianSortedArrays {
 
     // 归并排序 时间复杂度:O(M + N) 额外空间复杂度:O(M + N)
     public static double findMedianSortedArrays1(int[] nums1, int[] nums2) {
