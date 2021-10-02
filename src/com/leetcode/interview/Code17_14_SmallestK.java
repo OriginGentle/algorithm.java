@@ -9,7 +9,6 @@ import java.util.PriorityQueue;
  */
 public class Code17_14_SmallestK {
 
-
     // O(N * logK)
     public static int[] smallestK1(int[] arr, int k) {
         int[] ans = new int[k];
