@@ -4,7 +4,7 @@ package com.leetcode;
  * @Author ycb
  * @Date 2021/6/29-16:52
  */
-public class Code0005_LongestPalindrome {
+public class Problem_0005_LongestPalindrome {
 
     // Manacher算法
     public String longestPalindrome(String s) {

@@ -6,7 +6,7 @@ import java.util.HashMap;
  * @Author ycb
  * @Date 2021/7/4-15:40
  */
-public class Code0645_FindErrorNums {
+public class Problem_0645_FindErrorNums {
     public static int[] findErrorNums(int[] nums) {
         int[] ans = new int[2];
         int N = nums.length;

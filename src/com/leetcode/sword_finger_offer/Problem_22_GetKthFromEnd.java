@@ -6,7 +6,7 @@ import java.util.Stack;
  * @author ycb
  * @since 2021/9/2-17:42
  */
-public class Code22_GetKthFromEnd {
+public class Problem_22_GetKthFromEnd {
 
     public static class ListNode {
         int val;

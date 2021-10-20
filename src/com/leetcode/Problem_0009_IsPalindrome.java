@@ -4,7 +4,7 @@ package com.leetcode;
  * @author ycb
  * @since 2021/8/25-20:15
  */
-public class Code0009_IsPalindrome {
+public class Problem_0009_IsPalindrome {
 
     public static boolean isPalindrome(int number) {
         if (number <= 0) {

@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * @author ycb
  * @since 2021/9/8-11:06
  */
-public class Code0502_IPO {
+public class Problem_0502_IPO {
 
     public static int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
         // 花费从小到大组织

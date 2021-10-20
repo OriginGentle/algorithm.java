@@ -8,7 +8,7 @@ import java.util.Map;
  * @author ycb
  * @since 2021/8/11-19:43
  */
-public class Code0446_NumberOfArithmeticSlices {
+public class Problem_0446_NumberOfArithmeticSlices {
 
     public static int numberOfArithmeticSlices(int[] nums) {
         if (nums == null || nums.length < 3) {

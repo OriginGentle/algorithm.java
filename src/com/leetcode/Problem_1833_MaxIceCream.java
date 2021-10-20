@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @Author ycb
  * @Date 2021/7/2-13:36
  */
-public class Code1833_MaxIceCream {
+public class Problem_1833_MaxIceCream {
 
     public int maxIceCream2(int[] costs, int coins) {
         Arrays.sort(costs);

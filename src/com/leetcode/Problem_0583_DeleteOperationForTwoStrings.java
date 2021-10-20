@@ -4,7 +4,7 @@ package com.leetcode;
  * @author ycb
  * @since 2021/9/25-17:31
  */
-public class Code0583_DeleteOperationForTwoStrings {
+public class Problem_0583_DeleteOperationForTwoStrings {
 
     public static int minDistance(String s1, String s2) {
         if (s1 == null || s2 == null) {

@@ -4,7 +4,7 @@ package com.leetcode;
  * @author ycb
  * @since 2021/9/21-11:17
  */
-public class Code0058_LengthOfLastWord {
+public class Problem_0058_LengthOfLastWord {
 
     public static int lengthOfLastWord(String s) {
         if (s.length() == 1) {

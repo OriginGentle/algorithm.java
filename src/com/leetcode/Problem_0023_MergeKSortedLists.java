@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * @author ycb
  * @since 2021/10/12-15:36
  */
-public class Code0023_MergeKSortedLists {
+public class Problem_0023_MergeKSortedLists {
 
     public class ListNode {
         int val;

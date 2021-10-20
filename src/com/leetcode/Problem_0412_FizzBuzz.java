@@ -7,7 +7,7 @@ import java.util.List;
  * @author ycb
  * @since 2021/10/13-8:19
  */
-public class Code0412_FizzBuzz {
+public class Problem_0412_FizzBuzz {
 
     public List<String> fizzBuzz(int n) {
         List<String> ans = new ArrayList<>();
