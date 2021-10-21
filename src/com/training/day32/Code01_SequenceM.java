@@ -97,8 +97,7 @@ public class Code01_SequenceM {
         }
         IndexTree iTree = new IndexTree(max - min + 2);
         Arrays.sort(arr);
-        int a = 0, b = 0;
-        int all = 1;
+        int a = 0, b = 0,all = 1;
         iTree.add(arr[0] - min + 1, 1);
         for (int i = 1; i < arr.length; i++) {
             a = arr[i] - min + 1;
