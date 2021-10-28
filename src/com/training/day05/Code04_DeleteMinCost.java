@@ -206,7 +206,7 @@ public class Code04_DeleteMinCost {
         int ans = 0;
         // 假设删除后的str2必以i位置开头
         // 那么查找i位置在str1上一共有几个，并对str1上的每个位置开始遍历
-        // 再次遍历str2一次，看存在对应str1中i后续连续子串可容纳的最长长度
+        // 再次遍历str2一次，看存在对应str1中i后续连续子串可容纳的长度
         for (int i = 0; i < str2.length; i++) {
             if (map1.containsKey(str2[i])) {
                 ArrayList<Integer> keyList = map1.get(str2[i]);
