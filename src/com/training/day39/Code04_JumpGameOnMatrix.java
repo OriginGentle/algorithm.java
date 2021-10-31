@@ -23,7 +23,7 @@ public class Code04_JumpGameOnMatrix {
     // 当前能跳多远 map[row][col]决定，只能向下或向右
     // 返回，到达右下角，最小跳几次？
     public static int process(int[][] map, int row, int col) {
-        if (row == map.length && col == map[0].length) {
+        if (row == map.length - 1 && col == map[0].length - 1) {
             return 0;
         }
         // 如果没到右下角
@@ -189,5 +189,54 @@ public class Code04_JumpGameOnMatrix {
             }
             return Math.min(left, right);
         }
+    }
+
+    // 为了测试
+    public static int[][] randomMatrix(int n, int m, int v) {
+        int[][] ans = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                ans[i][j] = (int) (Math.random() * v);
+            }
+        }
+        return ans;
+    }
+
+    // 为了测试
+    public static void main(String[] args) {
+        // 先展示一下线段树的用法，假设N=100
+        // 初始化时，1~100所有位置的值都是系统最大
+        System.out.println("线段树展示开始");
+        int N = 100;
+        SegmentTree st = new SegmentTree(N);
+        // 查询8~19范围上的最小值
+        System.out.println(st.query(8, 19, 1, N, 1));
+        // 把6~14范围上对应的值都修改成56
+        st.update(6, 14, 56, 1, N, 1);
+        // 查询8~19范围上的最小值
+        System.out.println(st.query(8, 19, 1, N, 1));
+        // 以上是线段树的用法，你可以随意使用update和query方法
+        // 线段树的详解请看体系学习班
+        System.out.println("线段树展示结束");
+
+        // 以下为正式测试
+        int len = 10;
+        int value = 8;
+        int testTimes = 10000;
+        System.out.println("对数器测试开始");
+        for (int i = 0; i < testTimes; i++) {
+            int n = (int) (Math.random() * len) + 1;
+            int m = (int) (Math.random() * len) + 1;
+            int[][] map = randomMatrix(n, m, value);
+            int ans1 = jump1(map);
+            int ans2 = jump2(map);
+            if (ans1 != ans2) {
+                System.out.println("出错了!");
+                System.out.println(ans1);
+                System.out.println(ans2);
+                break;
+            }
+        }
+        System.out.println("对数器测试结束");
     }
 }
