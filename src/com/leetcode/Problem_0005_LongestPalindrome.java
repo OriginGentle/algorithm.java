@@ -7,13 +7,13 @@ package com.leetcode;
 public class Problem_0005_LongestPalindrome {
 
     // Manacher算法
-    public String longestPalindrome(String s) {
+    public static String longestPalindrome(String s) {
         if (s == null || s.length() == 0) {
             return null;
         }
         // 12321   --> #1#2#3#2#1#
         char[] str = manacherString(s);
-        // 准备回文半径数组
+        // 回文半径数组
         int[] pArr = new int[str.length];
         int C = -1;
         // 最右回文边界的下一个位置
@@ -34,7 +34,14 @@ public class Problem_0005_LongestPalindrome {
             }
             max = Math.max(max, pArr[i]);
         }
-        return null;
+        String ans = null;
+        for (int i = 0; i < pArr.length; i++) {
+            if (pArr[i] == max) {
+                ans = String.valueOf(str).substring(i + 1 - pArr[i], i + max);
+                break;
+            }
+        }
+        return ans.replaceAll("#", "");
     }
 
     public static char[] manacherString(String str) {
@@ -45,5 +52,11 @@ public class Problem_0005_LongestPalindrome {
             res[i] = (i & 1) == 0 ? '#' : charArray[index++];
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        String s = "cbbd";
+        String ans = longestPalindrome(s);
+        System.out.println(ans);
     }
 }

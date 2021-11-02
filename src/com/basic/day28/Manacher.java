@@ -15,31 +15,43 @@ public class Manacher {
         char[] str = manacherString(s);
         // 回文半径的大小
         int[] pArr = new int[str.length];
+        // 最右回文边界中心
         int C = -1;
+        // 最右回文边界
         // 理解上:R代表最右的扩成功的位置
-        // coding:最右的扩成功位置的，再下一个位置
+        // coding:最右的扩成功位置的，再下一个位置(第一次失败的位置)
         int R = -1;
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < str.length; i++) {
             // R : 第一个违规的位置
-            // R > i : 理解上i被R罩住的情况
-            // R < i : 以i为中心的回文长度至少为1
-            // 2 * C - i : i`的位置
+            // R <= i : i在R外，以i位置字符为回文半径至少是1
+            // R > i : 理解上i被R罩住的情况:
+            // ① i'的回文半径在L内 --> i的回文半径 == i'的回文半径
+            // ② i'的回文半径在L外 --> i的回文半径: i 到 R 的距离
+            // ③ i'的回文半径正好在L上 --> i的回文半径: 至少是 i 到 R 的距离
+            // (2 * C - i) : i'的位置    pArr[2 * C - i]: i'的回文半径
             // 至少不用验的区域 : Math.min(pArr[2 * C - i], R - i)
             pArr[i] = R > i ? Math.min(pArr[2 * C - i], R - i) : 1;
+            // pArr[i]代表至少不用验的区域
+            // 成立条件:往左的位置不越界，往右的位置不越界
             while (i + pArr[i] < str.length && i - pArr[i] > -1) {
+                // 情况③的处理,如果L往左的字符与R往右的字节配上了，则推高此时i位置的回文半径
                 if (str[i + pArr[i]] == str[i - pArr[i]]) {
                     pArr[i]++;
                 } else {
                     break;
                 }
             }
+            // 如果R被推高，更新R和C
             if (i + pArr[i] > R) {
                 R = i + pArr[i];
                 C = i;
             }
             max = Math.max(max, pArr[i]);
         }
+        // 1221 --> #1#2 # 2#1#
+        // 回文半径：5 --> max
+        // max - 1就是原始串的最大回文子串长度
         return max - 1;
     }
 
