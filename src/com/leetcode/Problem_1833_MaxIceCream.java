@@ -22,6 +22,10 @@ public class Problem_1833_MaxIceCream {
         return count;
     }
 
+    /*
+    ====================================================================================================================
+     */
+
     public static int maxIceCream1(int[] costs, int coins) {
         int[] freq = new int[100001];
         for (int cost : costs) {
@@ -39,7 +43,6 @@ public class Problem_1833_MaxIceCream {
         }
         return count;
     }
-
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 3, 2, 4, 1};

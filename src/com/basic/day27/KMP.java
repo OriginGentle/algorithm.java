@@ -9,6 +9,7 @@ package com.basic.day27;
  * 时间复杂度 O(N)
  */
 public class KMP {
+
     public static int getIndexOf(String s1, String s2) {
         if (s1 == null || s2 == null || s2.length() < 1 || s2.length() > s1.length()) {
             return -1;

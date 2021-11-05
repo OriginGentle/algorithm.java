@@ -21,16 +21,16 @@ public class Problem_0476_NumberComplement {
     }
 
     public static int func(int num) {
-        int highbit = 0;
+        int highBit = 0;
         // 获取高位的1在第几位
         for (int i = 1; i <= 30; ++i) {
             if (num >= 1 << i) {
-                highbit = i;
+                highBit = i;
             } else {
                 break;
             }
         }
-        return highbit;
+        return highBit;
     }
 
     public static void main(String[] args) {

@@ -121,5 +121,16 @@ public class UnRecursiveTraversalBT {
         System.out.println("========");
         pos2(head);
         System.out.println("========");
+
+        System.out.println("测试开始：");
+        Node root = new Node(12);
+        root.left = new Node(6);
+        root.left.left = new Node(5);
+        root.left.left.left = new Node(3);
+        root.left.right = new Node(10);
+        root.left.right.left = new Node(8);
+        root.left.right.right = new Node(11);
+        root.left.right.left.left = new Node(7);
+        in(root);
     }
 }

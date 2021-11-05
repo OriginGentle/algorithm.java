@@ -7,6 +7,7 @@ import java.util.HashMap;
  * @Date 2021/7/4-15:40
  */
 public class Problem_0645_FindErrorNums {
+
     public static int[] findErrorNums(int[] nums) {
         int[] ans = new int[2];
         int N = nums.length;
@@ -29,6 +30,10 @@ public class Problem_0645_FindErrorNums {
         return ans;
     }
 
+    /*
+    ====================================================================================================================
+     */
+
     public static int[] findErrorNums1(int[] nums) {
         int[] ans = new int[2];
         int N = nums.length;
@@ -37,10 +42,10 @@ public class Problem_0645_FindErrorNums {
             arr[nums[i]]++;
         }
         for (int i = 1; i <= arr.length; i++) {
-            if (arr[i] == 0){
+            if (arr[i] == 0) {
                 ans[1] = i;
             }
-            if (arr[i] == 2){
+            if (arr[i] == 2) {
                 ans[0] = i;
             }
         }
