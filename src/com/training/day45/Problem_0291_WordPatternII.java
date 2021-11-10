@@ -41,6 +41,10 @@ public class Problem_0291_WordPatternII {
         }
         // 当前p[pi]还没有指定过
         int end = s.length();
+        // 剪枝
+        for (int i = p.length() - 1; i > pi; i--) {
+            end -= map[p.charAt(i) - 'a'] == null ? 1 : map[p.charAt(i) - 'a'].length();
+        }
         for (int i = si; i < end; i++) {
             // 从si出发的所有前缀串，全试
             cur = s.substring(si, i + 1);
