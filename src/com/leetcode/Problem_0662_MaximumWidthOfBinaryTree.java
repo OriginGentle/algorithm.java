@@ -4,7 +4,7 @@ package com.leetcode;
  * @author ycb
  * @since 2021/10/18-15:56
  */
-public class Problem_662_MaximumWidthOfBinaryTree {
+public class Problem_0662_MaximumWidthOfBinaryTree {
 
     public static class TreeNode {
         int val;
