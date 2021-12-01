@@ -24,6 +24,23 @@ public class Problem_1446_ConsecutiveCharacters {
         return ans;
     }
 
+    public static int maxPower1(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int ans = Integer.MIN_VALUE;
+        int l = 0, r = 0;
+        while (r < s.length()) {
+            if (s.charAt(l) == s.charAt(r)) {
+                ans = Math.max(ans, r - l + 1);
+                r++;
+            } else {
+                l++;
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         String s = "abbcccddddeeeeedcba";
         int ans = maxPower(s);
