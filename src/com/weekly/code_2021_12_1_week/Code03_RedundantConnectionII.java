@@ -5,7 +5,7 @@ package com.weekly.code_2021_12_1_week;
  * @date 2021/12/2-8:27
  * @description https://leetcode.com/problems/redundant-connection-ii/
  */
-public class Code04_RedundantConnectionII {
+public class Code03_RedundantConnectionII {
 
     public static int[] findRedundantDirectedConnection(int[][] edges) {
         int N = edges.length;

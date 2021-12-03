@@ -5,7 +5,7 @@ package com.weekly.code_2021_12_1_week;
  * @date 2021/12/2-8:26
  * @description https://leetcode.com/problems/4-keys-keyboard/
  */
-public class Code03_4KeysKeyboard {
+public class Code02_4KeysKeyboard {
 
     // 可以证明：
     // 来到i的时候，包括i在内最多有连续4次粘贴行为
