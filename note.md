@@ -173,14 +173,15 @@
   
   
   
+
 **4.返回一棵树的最大深度**
   **Leetcode原题，https://leetcode.com/problems/maximum-depth-of-binary-tree**
 
   
-  
+
 **5.用先序数组和中序数组重建一棵树**
   **Leetcode原题，https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal**
-  
+
   
 
   **6.用code展示比较器的使用**
@@ -210,13 +211,14 @@
   
   
   
+
 **4.在二叉树上收集所有达标的路径和**
   **Leetcode原题，https://leetcode.com/problems/path-sum-ii**
 
   
-  
+
 **5.判断二叉树是否是搜索二叉树**
-  
+
   
 
 ### 08 介绍归并排序和快速排序
@@ -830,7 +832,7 @@ Leetcode题目：https://leetcode.com/problems/friend-circles/
 
 题目：
 
-假设有排成一行的N个位置记为1~N，N一定大于或等于2
+假设有排成一行的N个位置记为1~N，N一定大于或等于2
 开始时机器人在其中的M位置上(M一定是1~N中的一个)
 如果机器人来到1位置，那么下一步只能往右来到2位置；
 如果机器人来到N位置，那么下一步只能往左来到N-1位置；
