@@ -1,7 +1,9 @@
 package com.leetcode;
 
-import javax.management.ObjectName;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 
 /**
  * @author ycb
