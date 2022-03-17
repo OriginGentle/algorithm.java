@@ -17,7 +17,7 @@ public class Problem_0720_LongestWordInDictionary {
         String ans = "";
         for (String word : words) {
             if (trieTree.search(word)) {
-                if (word.length() > ans.length() || (word.length() == ans.length() && word.compareTo(ans) > 0)) {
+                if (word.length() > ans.length() || (word.length() == ans.length() && word.compareTo(ans) < 0)) {
                     ans = word;
                 }
             }
@@ -63,7 +63,7 @@ public class Problem_0720_LongestWordInDictionary {
             TrieNode node = root;
             for (int i = 0; i < str.length; i++) {
                 int index = str[i] - 'a';
-                if (node.nexts[index] == null && !node.nexts[index].isEnd) {
+                if (node.nexts[index] == null || !node.nexts[index].isEnd) {
                     return false;
                 }
                 node = node.nexts[index];
