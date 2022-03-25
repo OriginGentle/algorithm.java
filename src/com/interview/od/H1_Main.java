@@ -1,15 +1,12 @@
 package com.interview.od;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class H1_Main {
 
     public static void sortTime(int[][] arr) {
-        Arrays.sort(arr, (a, b) -> a[0] - b[0]);
-        Arrays.sort(arr, (a, b) -> a[1] - b[1]);
-        Arrays.sort(arr, (a, b) -> a[2] - b[2]);
-        Arrays.sort(arr, (a, b) -> a[3] - b[3]);
+        Arrays.sort(arr, (a, b) -> a[0] != b[0] ? a[0] - b[0] : a[1] != b[1] ?
+                a[1] - b[1] : a[2] != a[2] ? a[2] - b[2] : a[3] - b[3]);
     }
 
 
