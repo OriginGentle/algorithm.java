@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Problem_0115_DistinctSubsequences {
 
-    public static int numDistinct(String s, String t) {
+    public static int numDistinct1(String s, String t) {
         if (s == null || s.length() == 0) {
             return 0;
         }
@@ -36,10 +36,25 @@ public class Problem_0115_DistinctSubsequences {
         preS = cur;
     }
 
+    /*
+    ====================================================================================================================
+     */
+
+    public static int numDistinct2(String s, String t) {
+        int m = s.length();
+        int n = t.length();
+        if (n > m) {
+            return 0;
+        }
+        int[][] dp = new int[m + 1][n + 1];
+
+        return dp[m][n];
+    }
+
     public static void main(String[] args) {
         String s = "rabbbit";
         String t = "rabbit";
-        int ans = numDistinct(s, t);
+        int ans = numDistinct1(s, t);
         System.out.println(ans);
     }
 }
