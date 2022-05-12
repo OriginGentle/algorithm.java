@@ -12,11 +12,20 @@ public class Problem_0153_FindMinimumInRotatedSortedArray {
         }
         int l = 0;
         int r = nums.length - 1;
-        int m = 0;
-        int ans = Integer.MAX_VALUE;
-        while (l <= r) {
-            m = (l + r) / 2;
+        while (l < r) {
+            int m = (l + r) / 2;
+            if (nums[m] < nums[r]) {
+                r = m;
+            } else {
+                l = m + 1;
+            }
         }
-        return 0;
+        return nums[l];
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {3, 1, 2};
+        int ans = findMin(nums);
+        System.out.println(ans);
     }
 }
