@@ -1,4 +1,4 @@
-package com.weekly;
+package com.other;
 
 import java.util.concurrent.atomic.AtomicLong;
 
