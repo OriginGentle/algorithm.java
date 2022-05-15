@@ -1,4 +1,4 @@
-package com.leetcode.interview;
+package com.leetcode.problem_interview;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
