@@ -1,4 +1,4 @@
-package com.leetcode.sword_finger_offer;
+package com.leetcode.problem_finger_offer;
 
 /**
  * @author ycb

@@ -1,4 +1,4 @@
-package com.leetcode.interview;
+package com.leetcode.problem_interview;
 
 /**
  * @author ycb
