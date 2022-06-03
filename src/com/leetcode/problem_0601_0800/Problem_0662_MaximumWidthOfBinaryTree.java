@@ -1,5 +1,7 @@
 package com.leetcode.problem_0601_0800;
 
+import java.util.ArrayDeque;
+
 /**
  * @author ycb
  * @since 2021/10/18-15:56
@@ -29,16 +31,41 @@ public class Problem_0662_MaximumWidthOfBinaryTree {
         if (root == null) {
             return 0;
         }
-        int N = 1, M = 1;
-        TreeNode cur = root;
-        while (cur.left != null) {
-            N++;
-            cur = cur.left;
+        ArrayDeque<NodeRecord> queue = new ArrayDeque<>();
+        queue.add(new NodeRecord(root, 0, 0));
+        int ans = 0, level = 0, pos = 0;
+        while (!queue.isEmpty()) {
+            NodeRecord cur = queue.poll();
+            if (cur.node != null) {
+                queue.add(new NodeRecord(cur.node.left, cur.depth + 1, cur.position << 1));
+                queue.add(new NodeRecord(cur.node.right, cur.depth + 1, (cur.position << 1) + 1));
+
+                if (level != cur.depth) {
+                    level = cur.depth;
+                    pos = cur.position;
+                }
+                ans = Math.max(ans, cur.position - pos + 1);
+            }
         }
-        while (cur.right != null) {
-            M++;
-            cur = cur.right;
+        return ans;
+    }
+
+    public static class NodeRecord {
+        public TreeNode node;
+        public int depth;
+        public int position;
+
+        public NodeRecord(TreeNode t, int d, int p) {
+            node = t;
+            depth = d;
+            position = p;
         }
-        return (int) Math.pow(2, Math.max(N, M) - 1);
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(3);
+        int ans = widthOfBinaryTree(root);
+        System.out.println(ans);
     }
 }
