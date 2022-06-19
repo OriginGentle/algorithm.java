@@ -1,7 +1,5 @@
 package com.weekly.code_2022_06_2_week;
 
-import javax.net.ssl.SNIHostName;
-
 /**
  * @author ycb
  * @date 2022/6/19-14:51
