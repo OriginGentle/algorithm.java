@@ -1,8 +1,5 @@
 package com.weekly.code_2022_06_3_week;
 
-import java.util.Locale;
-import java.util.SplittableRandom;
-
 /**
  * @author ycb
  * @date 2022/6/26-14:06
@@ -62,8 +59,8 @@ public class Code04_StarNumber {
     // for test
     public static void main(String[] args) {
         String s = "|**|**|*";
-        int[] a = new int[] { 0, 1, 3, 4 };
-        int[] b = new int[] { 7, 7, 6, 5 };
+        int[] a = new int[]{0, 1, 3, 4};
+        int[] b = new int[]{7, 7, 6, 5};
         int[] arr = number(s, a, b);
         for (int ans : arr) {
             System.out.println(ans);
