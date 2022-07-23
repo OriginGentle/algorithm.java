@@ -6,7 +6,7 @@ import java.net.http.HttpRequest;
  * @author ycb
  * @date 2022/6/18-20:55
  */
-public class Problem_29_4ueAj6 {
+public class Problem_029_4ueAj6 {
 
     static class Node {
         public int val;

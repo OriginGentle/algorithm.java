@@ -4,7 +4,7 @@ package com.leetcode.problem_finger_offer;
  * @author ycb
  * @date 2022/6/25-21:12
  */
-public class Problem_91_JEj789 {
+public class Problem_091_JEj789 {
 
     public static int minCost(int[][] costs) {
         if (costs == null || costs[0].length == 0) {

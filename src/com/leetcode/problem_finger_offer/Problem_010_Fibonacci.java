@@ -4,7 +4,7 @@ package com.leetcode.problem_finger_offer;
  * @author ycb
  * @since 2021/9/4-11:00
  */
-public class Problem_10_I_Fibonacci {
+public class Problem_010_Fibonacci {
 
     static final int mod = 1000000007;
 

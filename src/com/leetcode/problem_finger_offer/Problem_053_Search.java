@@ -4,7 +4,7 @@ package com.leetcode.problem_finger_offer;
  * @Author ycb
  * @Date 2021/7/16-8:39
  */
-public class Problem_53_I_Search {
+public class Problem_053_Search {
 
     // 遍历一遍数组
     public int search1(int[] nums, int target) {
