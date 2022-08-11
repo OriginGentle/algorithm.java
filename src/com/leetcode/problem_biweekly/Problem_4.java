@@ -1,18 +1,14 @@
 package com.leetcode.problem_biweekly;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Problem_4 {
 
-    public int shortestSequence(int[] rolls, int k) {
-        Set<Integer> set = new HashSet<>();
-        int ans = 1;
-        for (int num : rolls) {
-            set.add(num);
-            if (set.size() == k) {
-                ans++;
-                set.clear();
+    public long minimumReplacement(int[] nums) {
+        long ans = 0;
+        for (int i = nums.length - 2; i >= 0; i--) {
+            if (nums[i] > nums[i + 1]) {
+                int cnt = nums[i] / nums[i + 1] + (nums[i] % nums[i + 1] == 0 ? 0 : 1);
+                ans += cnt - 1;
+                nums[i] /= cnt;
             }
         }
         return ans;
