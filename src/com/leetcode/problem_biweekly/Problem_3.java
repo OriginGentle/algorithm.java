@@ -1,40 +1,55 @@
 package com.leetcode.problem_biweekly;
 
-import javax.xml.transform.Source;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
 
 public class Problem_3 {
 
-    // 贪心
-    public static long taskSchedulerII(int[] tasks, int space) {
-        // key : 任务类型
-        // value : 完成的天数
-        Map<Integer, Long> cmt = new HashMap<>();
-        long day = 0;
-        for (int i = 0; i < tasks.length; i++) {
-            int cur = tasks[i];
-            if (!cmt.containsKey(cur)) {
-                day++;
+    // 数字1-9,每个数字只能使用一次
+    // I : arr[i] < arr[i + 1]
+    // D : arr[i] > arr[i + 1]
+    public static String smallestNumber(String p) {
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+        int n = p.length() + 1;
+        int nc = 1;
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i <= n; i++) {
+            graph.add(new ArrayList<>());
+        }
+        int[] inDegree = new int[n + 1];
+        for (int i = 0; i < n - 1; i++) {
+            if (p.charAt(i) == 'I') {
+                graph.get(nc).add(nc + 1);
+                inDegree[nc + 1]++;
             } else {
-                Long pre = cmt.get(cur);
-                if (day - pre <= space) {
-                    long has = day - pre;
-                    long need = space - has + 1;
-                    day += need;
-                } else {
-                    day++;
+                graph.get(nc + 1).add(nc);
+                inDegree[nc]++;
+            }
+            nc++;
+        }
+        for (int i = 1; i <= n; i++) {
+            if (inDegree[i] == 0)
+                heap.add(i);
+        }
+        char[] ans = new char[n];
+        char cur = '1';
+        while (!heap.isEmpty()) {
+            int c = heap.poll();
+            ans[c - 1] = cur++;
+            for (int next : graph.get(c)) {
+                inDegree[next]--;
+                if (inDegree[next] == 0) {
+                    heap.add(next);
                 }
             }
-            cmt.put(cur, day);
         }
-        return day;
+        return new String(ans);
     }
 
     public static void main(String[] args) {
-        int[] arr = {5,8,8,5};
-        int p = 2;
-        long ans = taskSchedulerII(arr, p);
+        String p = "IIDDIDDD";
+        String ans = smallestNumber(p);
         System.out.println(ans);
     }
 }
