@@ -1,48 +1,66 @@
 package com.leetcode.problem_biweekly;
 
 public class Problem_4 {
+
+    public static int[] offset = {0, 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
+
     // n >= 1
     public static int countSpecialNumbers(int n) {
         // n 一共由几位数字组成
         // n : 697645617
         // len : 9位
         int lenOfNum = getLenOfNum(n);
-        if (lenOfNum == 1) {
-            return n;
-        }
+        if (lenOfNum == 1) return n;
+
         int ans = 0;
-        // 从 len - 1的长度字符串开始算起
-        // 可以得到多少个
-        for (int i = lenOfNum - 1; i > 0; i--) {
-            int count = 1;
-            int rest = 9;
-            int tmp = i;
-            while (--tmp > 0) {
-                count *= rest--;
-            }
-            // 最高位不能是0，所以最后要考虑最高位的情况
-            ans += count * 9;
+        // 1 - 8
+        // 依次计算位数为 1-8 的情况下
+        // 有多少个数字符合要求
+        for (int i = 1; i < lenOfNum; i++) {
+            ans += all(i);
         }
-        // 剩下的len位范围的数字需要统计
-        // 100000000 - 697645617
-        int count = process(n, 0, lenOfNum, "", new boolean[10]);
-        return ans + count;
+
+        // 最高位的数字
+        int firstNum = n / offset[lenOfNum];
+        // 最高位是9
+        // 那么此时尝试最高位是 1-8的情况
+        ans += (firstNum - 1) * small(lenOfNum - 1, 9);
+        ans += process(n, lenOfNum, lenOfNum - 1, 1 << firstNum);
+        return ans;
     }
 
-    // from - to 范围内的数字
-    public static int process(int to, int idx, int len, String pre, boolean[] visited) {
-        if (idx == len) {
-            int ans = Integer.parseInt(pre);
-            return (getLenOfNum(ans) == len && ans <= to) ? 1 : 0;
+    // 用位信息来保存数字的使用状态
+    private static int process(int num, int len, int rest, int status) {
+        if (rest == 0) {
+            return 1;
         }
-        int ans = 0;
-        for (int i = 0; i <= 9; i++) {
-            if (visited[i]) {
-                continue;
+        int cur = (num / offset[rest]) % 10;
+        int cnt = 0;
+        for (int i = 0; i < cur; i++) {
+            if ((status & (1 << i)) == 0) {
+                cnt++;
             }
-            visited[i] = true;
-            ans += process(to, idx + 1, len, pre + i, visited);
-            visited[i] = false;
+        }
+        int ans = cnt * small(rest - 1, 10 - len + rest - 1);
+        if ((status & (1 << cur)) == 0) {
+            ans += process(num, len, rest - 1, status | (1 << cur));
+        }
+        return ans;
+    }
+
+    public static int small(int bits, int cand) {
+        int ans = 1;
+        for (int i = 0; i < bits; i++, cand--) {
+            ans *= cand;
+        }
+        return ans;
+    }
+
+    public static int all(int bits) {
+        int ans = 9;
+        int cur = 9;
+        while (--bits > 0) {
+            ans *= cur--;
         }
         return ans;
     }
