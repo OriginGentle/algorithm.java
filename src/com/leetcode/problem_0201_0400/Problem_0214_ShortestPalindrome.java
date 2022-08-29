@@ -7,7 +7,7 @@ package com.leetcode.problem_0201_0400;
 public class Problem_0214_ShortestPalindrome {
 
     // 找最长的回文前缀
-    public static String shortestPalindrome(String s) {
+    public static String shortestPalindrome1(String s) {
         if (s == null || s.length() == 0)
             return s;
 
@@ -17,8 +17,6 @@ public class Problem_0214_ShortestPalindrome {
             int len1 = func(str, i, i);
             int len2 = func(str, i, i + 1);
             int len = Math.max(len1, len2);
-
-//            int len = func(str, i - 1, i + 1);
 
             if (i - (len - 1) / 2 == 0)
                 max = Math.max(len, max);
@@ -35,9 +33,41 @@ public class Problem_0214_ShortestPalindrome {
         return r - l - 1;
     }
 
+    /*
+    ====================================================================================================================
+     */
+
+    public static String shortestPalindrome2(String s) {
+        if (s == null || s.length() == 0)
+            return s;
+
+        int n = s.length();
+        String tmp = s + "#" + new StringBuilder(s).reverse();
+        char[] str = tmp.toCharArray();
+        int max = getNextArr(str);
+        String end = max == n - 1 ? "" : s.substring(max + 1);
+        return new StringBuilder(end).reverse() + s;
+    }
+
+    private static int getNextArr(char[] str) {
+        int n = str.length;
+        int[] next = new int[n];
+        next[0] = -1;
+        int i = 0, cn = -1;
+        while (i < n - 1) {
+            if (cn == -1 || str[i] == str[cn])
+                next[++i] = ++cn;
+            else
+                cn = next[cn];
+        }
+        return next[n - 1];
+    }
+
     public static void main(String[] args) {
         String s = "abbacd";
-        String ans = shortestPalindrome(s);
-        System.out.println(ans);
+        String ans1 = shortestPalindrome1(s);
+        String ans2 = shortestPalindrome2(s);
+        System.out.println(ans1);
+        System.out.println(ans2);
     }
 }
