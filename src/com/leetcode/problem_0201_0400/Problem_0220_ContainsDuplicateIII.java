@@ -5,7 +5,6 @@ import java.util.TreeSet;
 /**
  * @author ycb
  * @date 2022/8/31-09:48
- * @desc
  */
 public class Problem_0220_ContainsDuplicateIII {
 
