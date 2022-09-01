@@ -1,7 +1,5 @@
 package com.leetcode.problem_0201_0400;
 
-import com.weekly.code_2022_08_4_week.Code04_MaxPalindromeNumber;
-
 /**
  * @author ycb
  * @date 2022/9/1-09:49
