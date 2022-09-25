@@ -21,7 +21,6 @@ public class Problem_1652_DefuseTheBomb {
             sum[i] += sum[i - 1] + code[(i - 1) % n];
         }
 
-
         for (int i = 1; i <= n; i++) {
             if (k < 0)
                 ans[i - 1] = sum[i + n - 1] - sum[i + n + k - 1];
