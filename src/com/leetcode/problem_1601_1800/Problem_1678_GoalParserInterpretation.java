@@ -3,11 +3,10 @@ package com.leetcode.problem_1601_1800;
 /**
  * @author ycb
  * @date 2022/3/25
- * @desc
  */
 public class Problem_1678_GoalParserInterpretation {
 
-    public String interpret(String command) {
+    public static String interpret(String command) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < command.length(); i++) {
             if (command.charAt(i) == 'G') {
