@@ -55,7 +55,7 @@ public class Code04_MinSwapStep {
     }
 
     public static String generateStr(int maxLen) {
-        char[] str = new char[(int) Math.random() * maxLen + 1];
+        char[] str = new char[(int) (Math.random() * maxLen + 1)];
         for (int i = 0; i < str.length; i++) {
             str[i] = Math.random() < 0.5 ? 'G' : 'B';
         }
