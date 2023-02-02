@@ -4,7 +4,7 @@ package com.leetcode.problem_interview;
  * @author ycb
  * @date 2022/5/16-08:03
  */
-public class Problem_04_06_SuccessorLcci {
+public class Problem_04_06_SuccessorLCCI {
 
     public static class TreeNode {
         int val;

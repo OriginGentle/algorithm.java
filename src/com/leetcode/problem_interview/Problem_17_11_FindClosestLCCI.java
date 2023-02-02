@@ -4,7 +4,7 @@ package com.leetcode.problem_interview;
  * @author ycb
  * @date 2022/5/27-09:01
  */
-public class Problem_17_11_FindClosestLcci {
+public class Problem_17_11_FindClosestLCCI {
 
     public int findClosest(String[] words, String s1, String s2) {
         int ans = Integer.MAX_VALUE;

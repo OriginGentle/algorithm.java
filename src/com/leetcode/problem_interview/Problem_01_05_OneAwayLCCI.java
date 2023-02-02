@@ -4,7 +4,7 @@ package com.leetcode.problem_interview;
  * @author ycb
  * @date 2022/5/13-08:24
  */
-public class Problem_01_05_OneAwayLcci {
+public class Problem_01_05_OneAwayLCCI {
 
     public static boolean oneEditAway(String first, String second) {
         if (first == null || second == null) {

@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * @author ycb
  * @date 2022/9/28-11:24
  */
-public class Problem_17_09_GetKthMagicNumberLcci {
+public class Problem_17_09_GetKthMagicNumberLCCI {
 
     private static final int[] cand = {3, 5, 7};
 

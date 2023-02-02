@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * @author ycb
  * @since 2021/9/3-20:14
  */
-public class Problem_17_14_SmallestK {
+public class Problem_17_14_SmallestKLCCI {
 
     // O(N * logK)
     public static int[] smallestK1(int[] arr, int k) {

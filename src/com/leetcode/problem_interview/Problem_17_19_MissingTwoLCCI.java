@@ -4,7 +4,7 @@ package com.leetcode.problem_interview;
  * @author ycb
  * @date 2022/9/26-13:55
  */
-public class Problem_17_19_MissingTwoLcci {
+public class Problem_17_19_MissingTwoLCCI {
 
     public int[] missingTwo(int[] nums) {
         int n = nums.length + 2;
