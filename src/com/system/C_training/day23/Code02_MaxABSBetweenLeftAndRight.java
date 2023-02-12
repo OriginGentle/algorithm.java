@@ -1,0 +1,82 @@
+package com.system.C_training.day23;
+
+/**
+ * @author ycb
+ * @date 2021/10/8-8:20
+ * @description 给定一个数组arr，长度为N
+ * 从中间切一刀，保证左部分和右部分都有数字，一共有N-1种切法
+ * 如此多的切法中，每一种都有:
+ * 绝对值(左部分最大值 – 右部分最大值)
+ * 返回最大的绝对值是多少
+ */
+public class Code02_MaxABSBetweenLeftAndRight {
+
+    // 暴力解 --> 对数器
+    public static int maxABS1(int[] arr) {
+        int res = Integer.MIN_VALUE;
+        int leftMax = 0;
+        int rightMax = 0;
+        for (int i = 0; i != arr.length - 1; i++) {
+            leftMax = Integer.MIN_VALUE;
+            for (int j = 0; j != i + 1; j++) {
+                leftMax = Math.max(leftMax, arr[j]);
+            }
+            rightMax = Integer.MIN_VALUE;
+            for (int k = i + 1; k < arr.length; k++) {
+                rightMax = Math.max(rightMax, arr[k]);
+            }
+            res = Math.max(Math.abs(leftMax - rightMax), res);
+        }
+        return res;
+    }
+
+    /*
+    ====================================================================================================================
+     */
+
+    public static int maxABS2(int[] arr) {
+        int[] lArr = new int[arr.length];
+        int[] rArr = new int[arr.length];
+        lArr[0] = arr[0];
+        rArr[arr.length - 1] = arr[arr.length - 1];
+        for (int i = 1; i < arr.length; i++) {
+            lArr[i] = Math.max(lArr[i - 1], arr[i]);
+        }
+        for (int i = arr.length - 2; i > -1; i--) {
+            rArr[i] = Math.max(rArr[i + 1], arr[i]);
+        }
+        int max = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            max = Math.max(max, Math.abs(lArr[i] - rArr[i + 1]));
+        }
+        return max;
+    }
+
+    /*
+    ====================================================================================================================
+     */
+
+    public static int maxABS3(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            max = Math.max(max, arr[i]);
+        }
+        return max - Math.min(arr[0], arr[arr.length - 1]);
+    }
+
+    // for test
+    public static int[] generateRandomArray(int length) {
+        int[] arr = new int[length];
+        for (int i = 0; i != arr.length; i++) {
+            arr[i] = (int) (Math.random() * 1000) - 499;
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = generateRandomArray(200);
+        System.out.println(maxABS1(arr));
+        System.out.println(maxABS2(arr));
+        System.out.println(maxABS3(arr));
+    }
+}
