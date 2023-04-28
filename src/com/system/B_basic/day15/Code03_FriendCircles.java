@@ -5,7 +5,7 @@ package com.system.B_basic.day15;
  * @Date 2021/3/15-10:39
  * @Description https://leetcode.com/problems/friend-circles/
  */
-public class Code02_FriendCircles {
+public class Code03_FriendCircles {
 
     public static int findCircleNum(int[][] M) {
         int N = M.length;

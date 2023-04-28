@@ -10,7 +10,7 @@ import java.util.List;
  *
  * 注意：动态初始化的技巧
  */
-public class Code04_NumberOfIslandsII {
+public class Code05_NumberOfIslandsII {
 
     public static List<Integer> numIslands2(int m, int n, int[][] positions) {
         UnionFind uf = new UnionFind(m, n);

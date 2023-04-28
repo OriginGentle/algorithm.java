@@ -32,18 +32,20 @@ public class Code08_Prim {
         for (Node node : graph.nodes.values()) {
             if (!nodeSet.contains(node)) {
                 nodeSet.add(node);
-                for (Edge edge : node.edges) { // 由一个点，解锁所有的边
-                    priorityQueue.add(edge);
-                }
+//                for (Edge edge : node.edges) { // 由一个点，解锁所有的边
+//                    priorityQueue.add(edge);
+//                }
+                priorityQueue.addAll(node.edges);
                 while (!priorityQueue.isEmpty()) {
                     Edge edge = priorityQueue.poll(); // 弹出最小边
                     Node toNode = edge.to; // 解锁的点
                     if (!nodeSet.contains(toNode)) { // 不含有的时候，就是新的点
                         nodeSet.add(toNode);
                         result.add(edge);
-                        for (Edge nextEdge : toNode.edges) {
-                            priorityQueue.add(nextEdge);
-                        }
+//                        for (Edge nextEdge : toNode.edges) {
+//                            priorityQueue.add(nextEdge);
+//                        }
+                        priorityQueue.addAll(toNode.edges);
                     }
                 }
             }

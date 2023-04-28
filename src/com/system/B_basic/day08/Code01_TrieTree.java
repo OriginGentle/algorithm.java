@@ -12,12 +12,12 @@ public class Code01_TrieTree {
     public static class Node1 {
         private int pass;
         private int end;
-        private Node1[] nexts; // 代表路
+        private final Node1[] nexts; // 代表路
 
         public Node1() {
             pass = 0;
             end = 0;
-            /**
+            /*
              0 -> a
              1 -> b
              ..   ..
@@ -44,9 +44,8 @@ public class Code01_TrieTree {
             }
             char[] str = word.toCharArray(); //
             Node1 node = root;
-            int path = 0;
-            for (int i = 0; i < str.length; i++) {
-                path = str[i] - 'a';
+            for (char c : str) {
+                int path = c - 'a';
                 if (node.nexts[path] == null) {
                     node.nexts[path] = new Node1();
                 }
@@ -63,9 +62,8 @@ public class Code01_TrieTree {
             }
             char[] str = word.toCharArray();
             Node1 node = root;
-            int index = 0;
-            for (int i = 0; i < str.length; i++) {
-                index = str[i] - 'a';
+            for (char c : str) {
+                int index = c - 'a';
                 if (node.nexts[index] == null) {
                     return 0;
                 }
@@ -81,9 +79,8 @@ public class Code01_TrieTree {
             }
             char[] str = pre.toCharArray();
             Node1 node = root;
-            int index = 0;
-            for (int i = 0; i < str.length; i++) {
-                index = str[i] - 'a';
+            for (char c : str) {
+                int index = c - 'a';
                 if (node.nexts[index] == null) {
                     return 0;
                 }
@@ -98,9 +95,8 @@ public class Code01_TrieTree {
                 char[] str = word.toCharArray();
                 Node1 node = root;
                 root.pass--;
-                int path = 0;
-                for (int i = 0; i < str.length; i++) {
-                    path = str[i] - 'a';
+                for (char c : str) {
+                    int path = c - 'a';
                     if (--node.nexts[path].pass == 0) {
                         node.nexts[path] = null;
                         return;
@@ -130,7 +126,7 @@ public class Code01_TrieTree {
     }
 
     public static class Trie2 {
-        private Node2 root;
+        private final Node2 root;
 
         public Trie2() {
             root = new Node2();
@@ -143,13 +139,11 @@ public class Code01_TrieTree {
             char[] chs = word.toCharArray();
             Node2 node = root;
             node.pass++;
-            int index = 0;
-            for (int i = 0; i < chs.length; i++) {
-                index = (int) chs[i];
-                if (!node.nexts.containsKey(index)) {
-                    node.nexts.put(index, new Node2());
+            for (char ch : chs) {
+                if (!node.nexts.containsKey((int) ch)) {
+                    node.nexts.put((int) ch, new Node2());
                 }
-                node = node.nexts.get(index);
+                node = node.nexts.get((int) ch);
                 node.pass++;
             }
             node.end++;
@@ -160,14 +154,12 @@ public class Code01_TrieTree {
                 char[] chs = word.toCharArray();
                 Node2 node = root;
                 node.pass--;
-                int index = 0;
-                for (int i = 0; i < chs.length; i++) {
-                    index = (int) chs[i];
-                    if (--node.nexts.get(index).pass == 0) {
-                        node.nexts.remove(index);
+                for (char ch : chs) {
+                    if (--node.nexts.get((int) ch).pass == 0) {
+                        node.nexts.remove((int) ch);
                         return;
                     }
-                    node = node.nexts.get(index);
+                    node = node.nexts.get((int) ch);
                 }
                 node.end--;
             }
@@ -180,13 +172,11 @@ public class Code01_TrieTree {
             }
             char[] chs = word.toCharArray();
             Node2 node = root;
-            int index = 0;
-            for (int i = 0; i < chs.length; i++) {
-                index = (int) chs[i];
-                if (!node.nexts.containsKey(index)) {
+            for (char ch : chs) {
+                if (!node.nexts.containsKey((int) ch)) {
                     return 0;
                 }
-                node = node.nexts.get(index);
+                node = node.nexts.get((int) ch);
             }
             return node.end;
         }
@@ -198,13 +188,11 @@ public class Code01_TrieTree {
             }
             char[] chs = pre.toCharArray();
             Node2 node = root;
-            int index = 0;
-            for (int i = 0; i < chs.length; i++) {
-                index = (int) chs[i];
-                if (!node.nexts.containsKey(index)) {
+            for (char ch : chs) {
+                if (!node.nexts.containsKey((int) ch)) {
                     return 0;
                 }
-                node = node.nexts.get(index);
+                node = node.nexts.get((int) ch);
             }
             return node.pass;
         }
@@ -212,7 +200,7 @@ public class Code01_TrieTree {
 
     public static class Right {
 
-        private HashMap<String, Integer> box;
+        private final HashMap<String, Integer> box;
 
         public Right() {
             box = new HashMap<>();
@@ -237,11 +225,7 @@ public class Code01_TrieTree {
         }
 
         public int search(String word) {
-            if (!box.containsKey(word)) {
-                return 0;
-            } else {
-                return box.get(word);
-            }
+            return box.getOrDefault(word, 0);
         }
 
         public int prefixNumber(String pre) {
@@ -281,27 +265,27 @@ public class Code01_TrieTree {
             Trie1 trie1 = new Trie1();
             Trie2 trie2 = new Trie2();
             Right right = new Right();
-            for (int j = 0; j < arr.length; j++) {
+            for (String s : arr) {
                 double decide = Math.random();
                 if (decide < 0.25) {
-                    trie1.insert(arr[j]);
-                    trie2.insert(arr[j]);
-                    right.insert(arr[j]);
+                    trie1.insert(s);
+                    trie2.insert(s);
+                    right.insert(s);
                 } else if (decide < 0.5) {
-                    trie1.delete(arr[j]);
-                    trie2.delete(arr[j]);
-                    right.delete(arr[j]);
+                    trie1.delete(s);
+                    trie2.delete(s);
+                    right.delete(s);
                 } else if (decide < 0.75) {
-                    int ans1 = trie1.search(arr[j]);
-                    int ans2 = trie2.search(arr[j]);
-                    int ans3 = right.search(arr[j]);
+                    int ans1 = trie1.search(s);
+                    int ans2 = trie2.search(s);
+                    int ans3 = right.search(s);
                     if (ans1 != ans2 || ans2 != ans3) {
                         System.out.println("Oops!");
                     }
                 } else {
-                    int ans1 = trie1.prefixNumber(arr[j]);
-                    int ans2 = trie2.prefixNumber(arr[j]);
-                    int ans3 = right.prefixNumber(arr[j]);
+                    int ans1 = trie1.prefixNumber(s);
+                    int ans2 = trie2.prefixNumber(s);
+                    int ans3 = right.prefixNumber(s);
                     if (ans1 != ans2 || ans2 != ans3) {
                         System.out.println("Oops!");
                     }

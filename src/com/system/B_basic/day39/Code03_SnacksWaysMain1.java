@@ -1,7 +1,7 @@
 package com.system.B_basic.day39;
 
+import java.io.*;
 import java.util.Map.Entry;
-import java.util.Scanner;
 import java.util.TreeMap;
 
 /**
@@ -9,19 +9,25 @@ import java.util.TreeMap;
  * @Date 2021/6/17-17:56
  * @Description https://www.nowcoder.com/questionTerminal/d94bb2fa461d42bcb4c0f2b94f5d4281
  */
-public class Code03_SnacksWaysMain {
+public class Code03_SnacksWaysMain1 {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int bag = sc.nextInt();
-        int[] arr = new int[N];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StreamTokenizer in = new StreamTokenizer(br);
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
+        while (in.nextToken() != StreamTokenizer.TT_EOF) {
+            int n = (int) in.nval;
+            in.nextToken();
+            int bag = (int) in.nval;
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                in.nextToken();
+                arr[i] = (int) in.nval;
+            }
+            long ways = ways(arr, bag);
+            out.println(ways);
+            out.flush();
         }
-        long ways = ways(arr, bag);
-        System.out.println(ways);
-        sc.close();
     }
 
     public static long ways(int[] arr, int bag) {

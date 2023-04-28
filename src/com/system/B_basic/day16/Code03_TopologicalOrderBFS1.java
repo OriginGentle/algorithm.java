@@ -10,7 +10,7 @@ import java.util.Queue;
  * @Date 2021/3/16-16:02
  * @Description https://www.lintcode.com/problem/topological-sorting
  */
-public class Code03_TopologicalOrderBFS {
+public class Code03_TopologicalOrderBFS1 {
 
     // 图结构表示
     public static class DirectedGraphNode {

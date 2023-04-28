@@ -10,7 +10,7 @@ import java.util.Stack;
  * @Date 2021/3/15-11:28
  * @Description https://leetcode.com/problems/number-of-islands/
  */
-public class Code03_NumberOfIslands {
+public class Code04_NumberOfIslands {
 
     // 方法一
     public static int numIslands1(char[][] board) {
