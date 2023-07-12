@@ -9,7 +9,7 @@ public class Problem_2544_AlternatingDigitSum {
     public static int alternateDigitSum(int n) {
         int len = getLenOfNum(n);
         int offset = (int) Math.pow(10, len - 1);
-        int ans = 0, i = 1;
+        int ans = 0;
 
         for (int j = 1; j <= len; j++) {
             int bit = n / offset % 10;
@@ -28,11 +28,5 @@ public class Problem_2544_AlternatingDigitSum {
             n /= 10;
         }
         return len;
-    }
-
-    public static void main(String[] args) {
-        int n = 521;
-        int ans = alternateDigitSum(521);
-        System.out.println(ans);
     }
 }
