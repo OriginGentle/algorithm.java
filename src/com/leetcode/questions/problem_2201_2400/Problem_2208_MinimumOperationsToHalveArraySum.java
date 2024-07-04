@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
 public class Problem_2208_MinimumOperationsToHalveArraySum {
 
     public static int halveArray(int[] nums) {
-        double sum = 0, halfSum = 0;
+        double                sum  = 0, halfSum = 0;
         PriorityQueue<Double> heap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int num : nums) {
             sum += num;
@@ -19,7 +19,7 @@ public class Problem_2208_MinimumOperationsToHalveArraySum {
 
         int ans = 0;
         while (halfSum < sum / 2) {
-            double cur = heap.poll();
+            double cur     = heap.poll();
             double halfNum = cur / 2;
             halfSum += halfNum;
             heap.add(halfNum);
@@ -31,7 +31,7 @@ public class Problem_2208_MinimumOperationsToHalveArraySum {
 
     public static void main(String[] args) {
         int[] arr = {5, 19, 8, 1};
-        int ans = halveArray(arr);
+        int   ans = halveArray(arr);
         System.out.println(ans);
     }
 }
